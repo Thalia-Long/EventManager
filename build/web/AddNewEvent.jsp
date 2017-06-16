@@ -10,7 +10,8 @@
 		if(dateBooked === "")
                     document.getElementById("venueName").disabled = true;
                 else {
-                    venueName = document.getElementById("venueName");
+                    document.getElementById("venueName").disabled = false;
+                    /*var venueName = document.getElementById("venueName");
                     venueName.options.length = 0; 
                     venueName.disabled = false;
                     $.get( "/WebTest1/event?click=getVenues&selectedDate="+dateBooked, function( data ) {
@@ -21,7 +22,7 @@
                         option.value = vl[i];
                         venueName.add(option);
                     }
-	            });
+	            });*/
                 }
             }
             function booked() {
@@ -43,8 +44,10 @@
                 <hr />
                 <%if(role.equals("Organizer")) {%>
                 <input name="eventDate" type="date" value="<%=e.geteventDate()%>" onchange="enableVenues(this.value)" required />
-                <select name="venueName" id="venueName" disabled required>
-                    <option><%=e.getvenueName()%></option>
+                <select name="venueName" id="venueName" disabled>
+                    <c:forEach items="${listOfVenues}" var="thisVenue">
+                        <option>${thisVenue.venueName}</option>
+                    </c:forEach>
                 </select>
                 <input name="click" type="submit" value="Book Event" onclick="booked()" class="btn btn-primary" />
                 <%} else {%>

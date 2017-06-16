@@ -47,6 +47,10 @@ public class EventServlet extends HttpServlet {
                                         pl = new ArrayList<>();
                                         pl.add(p);
                                         request.setAttribute("myParticipants", pl);
+                                        vl = new ArrayList<>();
+                                        for(Object o:session.createQuery("from Venue as v").list())
+                                            vl.add((Model.Venue) o);
+                                        request.setAttribute("listOfVenues", vl);
                                         rd = request.getRequestDispatcher("AddNewEvent.jsp");
                                         break;
                 case "Book Event":      e = (Model.Event) hs.getAttribute("thisEvent");

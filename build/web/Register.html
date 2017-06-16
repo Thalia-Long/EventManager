@@ -4,41 +4,30 @@
         <title>Register</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="CSS/main.css" rel="stylesheet">
         <style>
-            .register table, td {
-                width: fit-content;
-                border: none;
-            }
-            .register button {
-                width: 100%;
-                border: none;
-                background-color: #FF5733;
-                color: white;
-                text-align: center;
-            }
-            .register button:hover {
-                background-color: #FFB533;
-            }
+            
         </style>
     </head>
     <body>
-        <div class="register">
+        <div class="container">
             <form name="registerForm" action="register" method="post">
                 <table>
                     <tr>
                         <td>Enter Your Name : </td>
-                        <td><input name="fName" type="text" placeholder="First" required /></td>
-                        <td><input name="lName" type="text" placeholder="Last" required /></td>
+                        <td><input name="fName" type="text" class="form-control" placeholder="First" required /></td>
+                        <td><input name="lName" type="text" class="form-control" placeholder="Last" required /></td>
                     </tr>
                     <tr>
                         <td>Enter Login Details : </td>
-                        <td><input name="userEmail" type="email" placeholder="Email" required /></td>
-                        <td><input name="userPassword" type="password" placeholder="Password" required /></td>
+                        <td><input name="userEmail" type="email" class="form-control" placeholder="Email" required /></td>
+                        <td><input name="userPassword" type="password" class="form-control" placeholder="Password" required /></td>
                     </tr>
                     <tr>
                         <td>Enter Phone : </td>
-                        <td><input name="phone" type="text" required /></td>
-                        <td><button type="submit">Register</button></td>
+                        <td><input name="phone" type="text" class="form-control" required /></td>
+                        <td><button type="submit" class="btn btn-primary">Register</button></td>
                     </tr>
                 </table>
             </form>

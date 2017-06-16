@@ -4,25 +4,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add New Venue</title>
-        <style>
-            .addnew input {
-                width: 100%;
-                border: solid;
-                border-color:#FFB533;
-                background-color: white;
-                font-weight: bold;
-                color: #FF5733;
-                text-align: center;
-            }
-            .addnew input:hover {
-                background-color: #FFB533;
-            }
-        </style>
     </head>
     <body>
-        <div class="addnew">
-            <form action="event" method="post">
-                <input type="submit" value="Add New Venue" />
+        <div><jsp:include page="Menu.jsp" /></div>
+        <div>
+            <%Model.Venue v = (Model.Venue) session.getAttribute("thisVenue");%>
+            <form action="venue" method="post">
+                Venue Name : <input name="venueName" type="text" value="<%=v.getvenueName()%>" <%if(!v.getvenueName().equals("")) {%>disabled<%}%> /><br />
+                Address : <input name="venueAddr" type="text" value="<%=v.getvenueAddr()%>" /><br />
+                <input name="click" type="submit" value="Save Venue" />
+                <input name="click" type="submit" value="Cancel" />
+                <input name="click" type="submit" value="Delete" <%if(v.getvenueName().equals("")) {%>disabled<%}%> />
             </form>
         </div>
     </body>

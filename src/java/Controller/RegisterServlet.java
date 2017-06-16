@@ -30,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
             u.setlName(lName);
             u.setPhone(phone);
             u.setisAdmin(false);
-            session.save(u);
+            session.saveOrUpdate(u);
             tx.commit();
             session.close();
             factory.close();

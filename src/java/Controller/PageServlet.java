@@ -14,10 +14,10 @@ public class PageServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");
         try {
-            String click = request.getParameter("click");
+            String click = (String) request.getAttribute("click");
             if(click == null) {
-                click = (String) request.getAttribute("click");
                 request.removeAttribute("click");
+                click = request.getParameter("click");
             }
             HttpSession hs = request.getSession(false);
             Model.User u = (Model.User) hs.getAttribute("thisUser");
@@ -29,6 +29,7 @@ public class PageServlet extends HttpServlet {
             SessionFactory factory = (new Configuration()).configure("Hibernate/hibernate.cfg.xml").buildSessionFactory();
             Session session = factory.openSession();
             switch(click) {
+                case "Cancel":
                 case "Home":        el = new ArrayList<>();
                                     for(Object o:session.createQuery("from Event as e where e.isPublic=1").list())
                                         el.add((Model.Event) o);

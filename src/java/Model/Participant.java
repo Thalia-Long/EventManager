@@ -1,13 +1,13 @@
 package Model;
 import java.util.Objects;
 public class Participant {
-    private String participantId;
+    private int participantId;
     private int eventId;
     private String userEmail, role;
-    public String getparticipantId() {
+    public int getparticipantId() {
         return participantId;
     }
-    public void setparticipantId(String participantId) {
+    public void setparticipantId(int participantId) {
         this.participantId = participantId;
     }
     public int geteventId() {
@@ -32,7 +32,7 @@ public class Participant {
     public boolean equals(Object o) {
         if(o != null && o instanceof Participant) {
             Participant p = (Participant) o;
-            return(p.getparticipantId().equalsIgnoreCase(participantId));
+            return(p.getparticipantId() == participantId);
         }
         else
             return false;

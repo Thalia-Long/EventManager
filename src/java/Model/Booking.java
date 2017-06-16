@@ -1,13 +1,13 @@
 package Model;
 import java.util.Objects;
 public class Booking {
-    private String bookingId;
+    private int bookingId;
     private String venueName;
     private String bookingDate;
-    public String getbookingId() {
+    public int getbookingId() {
         return bookingId;
     }
-    public void setbookingId(String bookingId) {
+    public void setbookingId(int bookingId) {
         this.bookingId = bookingId;
     }
     public String getvenueName() {
@@ -26,7 +26,7 @@ public class Booking {
     public boolean equals(Object o) {
         if(o != null && o instanceof Booking) {
             Booking b = (Booking) o;
-            return((b.getbookingId().equalsIgnoreCase(bookingId)));
+            return((b.getbookingId() == bookingId));
         }
         else
             return false;

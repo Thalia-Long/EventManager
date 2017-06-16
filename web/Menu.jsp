@@ -3,44 +3,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu</title>
+        <title>Menu</title>       
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <!--Import the ajax library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+        type=""></script>
+        <link href="CSS/main.css" rel="stylesheet">
         <style>
-            .menu table {
-                width: 100%;
-                border: none;
-            }
-            .menu td {
-                width: 20%;
-                border: none;
-            }
-            .menu input {
-                width: 100%;
-                border: none;
-                background-color: #FF5733;
-                color: white;
-                text-align: center;
-            }
-            .menu input:hover {
-                background-color: #FFB533;
-            }
+            body{padding:0;background-color:#fff;font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
         </style>
     </head>
     <body>
-        <div class="menu">
-            <form action="click" method="post">
-                <table>
-                    <tr>
-                        <td><input name="click" type="submit" value="Home" /></td>
-                        <td><input name="click" type="submit" value="My Events" /></td>
-                        <%Model.User u = (Model.User) session.getAttribute("thisUser");
-                        if(u.getisAdmin()) {%>
-                        <td><input name="click" type="submit" value="Venues" /></td>
-                        <%}%>
-                        <td><input name="click" type="submit" value="Account" /></td>
-                        <td><input name="click" type="submit" value="Logout" /></td>
-                    </tr>
-                </table>
-            </form>
+        <div class="container-fluid">
+            <div class="pull-right">
+                <div>
+                    <%Model.User u = (Model.User) session.getAttribute("thisUser");%>
+                    <font color="green">Welcome, <%=u.getfName()%> <%=u.getlName()%></font>
+                </div>
+                <div>
+                    <form  action="click" method="post">
+                        <span> <input name="click" type="submit" value="Home" class="menu-item"/></span>
+                        <span> <input name="click" type="submit" value="My Events" class="menu-item" /></span>
+                            <%Model.User obj = (Model.User) session.getAttribute("thisUser");
+                                if (obj.getisAdmin()) {%>
+                        <span><input name="click" type="submit" value="Venues" class="menu-item"/></span>
+                            <%}%>
+                        <span> <input name="click" type="submit" value="Account" class="menu-item"/></span>
+                        <span> <input name="click" type="submit" value="Logout" class="menu-item"/></span>
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
 </html>

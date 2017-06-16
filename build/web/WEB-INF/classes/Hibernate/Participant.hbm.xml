@@ -2,7 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 <class name="Model.Participant" table="participant">
-    <id name="participantId" column="participantId"></id>
+    <id name="participantId" column="participantId">
+        <generator class="increment"></generator>
+    </id>
     <property name="eventId" column="eventId" />
     <property name="userEmail" column="userEmail" />
     <property name="role" column="role" />

@@ -2,7 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
   <class name="Model.Booking" table="booking">
-      <id name="bookingId" column="bookingId"></id>
+      <id name="bookingId" column="bookingId">
+          <generator class="increment"></generator>
+      </id>
       <property name="venueName" column="venueName" />
       <property name="bookingDate" column="bookingDate" />
   </class>
